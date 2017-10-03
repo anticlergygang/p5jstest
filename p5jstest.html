@@ -2,17 +2,25 @@
 <html>
 
 <head>
-    <title>p5js chart</title>
+    <title>p5js</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <script type="text/javascript">
-    // preload() => {
-    // };
+    let players = [{ 'name': 'p1', 'xPos': 100, 'yPos': 100 }, { 'name': 'p2', 'xPos': 100, 'yPos': 300 }];
     setup = () => {
         createCanvas(windowWidth, windowHeight);
-        background(127);
+        background(255);
     };
     draw = () => {
+        players.forEach((player, i) => {
+            textSize(windowWidth / 60);
+            text(player.name, player.xPos, player.yPos - 10);
+            ellipse(player.xPos, player.yPos, 10, 10);
+        });
     };
+    windowResized = () => {
+        resizeCanvas(windowWidth, windowHeight);
+        background(255);
+    }
     </script>
 </head>
 
